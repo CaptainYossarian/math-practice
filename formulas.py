@@ -57,6 +57,7 @@ def cont_compint(famount,p,rate,years):
         rate = interest rate
         years = at the end of this many years
     """
+
     if famount == "x":
         print "The future amount is:"
         solution = p* math.exp((rate*years))
@@ -68,13 +69,31 @@ def cont_compint(famount,p,rate,years):
         solution = math.log(famount)/rate
     print solution
 
+def variable_in_exp(base,x):
+    """prints solution for equations in the form base**y = x, log(_base)x = y
+
+    Args:
+        base = base
+        y = uknown independent variable
+        x = known
+    """
+
+    y = 1
+    done = False
+    while(not done):
+        if(base**y != x):
+            y+=1
+        else:
+            done = True
+            print "The solution for y is: %s" % y
 
 
 ###############################################################################
 def main():
     #quadratic(4.00,6.00,9.00)
     #comp_interest("x",3000,.02, 12.00, 5.00)
-    cont_compint(4.00, 1, 0.09,"x")
+    #cont_compint(4.00, 1, 0.09,"x")
+    variable_in_exp(8,64)
 
 if __name__ == "__main__":
     main()
