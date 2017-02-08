@@ -105,6 +105,7 @@ def variable_in_exp(base,x):
             print "The solution for y is: %s" % y
 
 
+
 ###############################################################################
 def main():
     #quadratic(4.00,6.00,9.00)
