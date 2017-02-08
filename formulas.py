@@ -23,7 +23,6 @@ def quadratic(a, b, c):
         print "This equation has two real solutions:"
         print("x1:  %s") % str((-b + (discriminent)**.5)/ (2*a))
         print("x2:  %s") % str((-b - (discriminent)**.5)/ (2*a))
-    return "Work checked."
 
 def comp_interest(famount, p, rate, xcomp, years):
     """prints solutions for future amount and princple for compound interest
@@ -41,10 +40,10 @@ def comp_interest(famount, p, rate, xcomp, years):
 
     if famount == "x": #solves for famount
         solution = p*(1.00+(rate/xcomp))**(xcomp*years)
-        print solution
     else: #solves for principle p
         solution = famount/((1.00+(rate/xcomp))**(xcomp*years))
-        print solution
+
+    print solution
 
 def cont_compint(famount,p,rate,years):
     """prints solution for continuous compound interest functions.
@@ -66,8 +65,10 @@ def cont_compint(famount,p,rate,years):
         solution = famount/math.exp((rate*years))
     else:
         print "Years need is:"
-        solution = math.log(famount)/rate
+        solution = math.log(famount/p)/rate
+
     print solution
+
 
 def variable_in_exp(base,x):
     """prints solution for equations in the form base**y = x, log(_base)x = y
@@ -91,9 +92,9 @@ def variable_in_exp(base,x):
 ###############################################################################
 def main():
     #quadratic(4.00,6.00,9.00)
-    #comp_interest("x",3000,.02, 12.00, 5.00)
-    #cont_compint(4.00, 1, 0.09,"x")
-    variable_in_exp(8,64)
+    #comp_interest("x",10000.00,.02, 12.00, 5.00)
+    cont_compint(75000.00, 30000.00, .0491,"x")
+    #variable_in_exp(8,64)
 
 if __name__ == "__main__":
     main()
