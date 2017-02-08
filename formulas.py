@@ -46,10 +46,13 @@ def comp_interest(famount, p, rate, xcomp, years):
     """
 
     if famount == "x": #solves for famount
-        solution = p*(1.00+(rate/xcomp))**(xcomp*years)
+        print "The future amount is:"
+        solution = p * (1.00+(rate/xcomp))**(xcomp*years)
     elif p == "x": #solves for principle p
+        print "The principle is:"
         solution = famount/((1.00+(rate/xcomp))**(xcomp*years))
     else: #solves for years
+        print "Years is:"
         solution = math.log((1.00+(rate/xcomp)),(famount-p))/rate
 
     return solution
@@ -71,7 +74,7 @@ def cont_comp_interest(famount,p,rate,years):
 
     if famount == "x": #solves for future amount
         print "The future amount is:"
-        solution = p* math.exp((rate*years))
+        solution = p * math.exp((rate*years))
     elif p == "x": #solves for principle
         print "The principle is:"
         solution = famount/math.exp((rate*years))
@@ -95,7 +98,7 @@ def variable_in_exp(base,x):
         x = known
     """
 
-    y = 1
+    y = 0
     done = False
     while(not done):
         if(base**y != x):
@@ -108,6 +111,7 @@ def variable_in_exp(base,x):
 
 ###############################################################################
 def main():
+    #SAMPLE METHOD CALLS
     #quadratic(4.00,6.00,9.00)
     #cont_comp_interest(4000.00,2000.00,"x", 9.00)
     #comp_interest("x",5000.00,.0475,12)
