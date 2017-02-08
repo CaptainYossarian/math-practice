@@ -25,8 +25,8 @@ def quadratic(a, b, c):
         print("x2:  %s") % str((-b - (discriminent)**.5)/ (2*a))
 
 def comp_interest(famount, p, rate, xcomp, years):
-    """prints solutions for future amount and princple for compound interest
-       functions.
+    """Prints and returns solutions for future amount and princple for compound
+    interest functions.
 
     Formula: famount = p(1+(rate/xcomp))**(xcomp*years))
 
@@ -36,17 +36,22 @@ def comp_interest(famount, p, rate, xcomp, years):
         rate = interest rate
         xcomp = times compounded per year
         years = at the end of this many years
+
+    Notes: enter "x" for the target unknown variable
     """
 
     if famount == "x": #solves for famount
         solution = p*(1.00+(rate/xcomp))**(xcomp*years)
-    else: #solves for principle p
+    elif p == "x": #solves for principle p
         solution = famount/((1.00+(rate/xcomp))**(xcomp*years))
+    else: #solves for years
+        solution = math.log((1.00+(rate/xcomp)),(famount-p))/rate
 
+    return solution
     print solution
 
 def cont_compint(famount,p,rate,years):
-    """prints solution for continuous compound interest functions.
+    """prints and returns solution for continuous compound interest functions.
 
     Formula: A = p*e**(r*t) #e = Euler's number = base of the natural log
 
@@ -55,19 +60,25 @@ def cont_compint(famount,p,rate,years):
         p = principle(present value) of money
         rate = interest rate
         years = at the end of this many years
+
+    Notes: enter "x" for the unknown target variable
     """
 
-    if famount == "x":
+    if famount == "x": #solves for future amount
         print "The future amount is:"
         solution = p* math.exp((rate*years))
-    elif p == "x":
+    elif p == "x": #solves for principle
         print "The principle is:"
         solution = famount/math.exp((rate*years))
-    else:
-        print "Years need is:"
-        solution = math.log(famount/p)/rate
+    elif rate == "x": #solves for interest rate
+        print "The interest rate is:"
+        solution = math.log(famount/p)/years
+    else: #solves for years
+        print "Years is:"
+        solution = math.log(famount/p)/math.fabs(rate)
 
     print solution
+    return solution
 
 
 def variable_in_exp(base,x):
@@ -92,9 +103,35 @@ def variable_in_exp(base,x):
 ###############################################################################
 def main():
     #quadratic(4.00,6.00,9.00)
-    #comp_interest("x",10000.00,.02, 12.00, 5.00)
-    cont_compint(75000.00, 30000.00, .0491,"x")
+    #cont_compint(4000.00,2000.00,"x", 9.00)
+    #cont_compint(8000.00,5000.00,.0475, "x")
     #variable_in_exp(8,64)
+
+
+    """Complicated spaghetti logic for one of the problem types
+
+    start = comp_interest("x",2000.00,.2047, 1.00, 10.00)
+    time = 0.1
+    answer = 0
+    while (answer <= 2.00*start):
+        answer = comp_interest("x",2000.00,.2047, 1.00, time)
+        time += 0.1
+    time = time-10.00
+    print "the answer is: %s" % time
+    """
+
+
+
+    """Complicated spaghetti logic for one of the problem types
+
+    time = .10
+    solution = 0
+    while(solution <= 35000.00):
+        solution = cont_compint("x",10000.00,.042,time) + cont_compint("x",10000.00,.054,time)
+        time+=.10
+    print "answer: %s" % time
+    """
+
 
 if __name__ == "__main__":
     main()
