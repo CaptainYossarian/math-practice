@@ -10,19 +10,24 @@ def quadratic(a, b, c):
 
     Args:
         a,b,c = coefficients; ax^2 + bx + c = 0
+    Returns:
+        returns the numbers of solutions to satisfy tests
     """
 
     discriminent = (b**2 - 4*a*c)
 
     if discriminent < 0:
         print "This equation has no real solutions"
+        return 0
     elif discriminent ==0:
         print "This equation has one real solution:"
         print(-b + (discriminent)**.5)/ (2*a)
+        return 1
     else:
         print "This equation has two real solutions:"
         print("x1:  %s") % str((-b + (discriminent)**.5)/ (2*a))
         print("x2:  %s") % str((-b - (discriminent)**.5)/ (2*a))
+        return 2
 
 def comp_interest(famount, p, rate, xcomp, years):
     """Prints and returns solutions for future amount and princple for compound
@@ -50,7 +55,7 @@ def comp_interest(famount, p, rate, xcomp, years):
     return solution
     print solution
 
-def cont_compint(famount,p,rate,years):
+def cont_comp_interest(famount,p,rate,years):
     """prints and returns solution for continuous compound interest functions.
 
     Formula: A = p*e**(r*t) #e = Euler's number = base of the natural log
@@ -103,8 +108,8 @@ def variable_in_exp(base,x):
 ###############################################################################
 def main():
     #quadratic(4.00,6.00,9.00)
-    #cont_compint(4000.00,2000.00,"x", 9.00)
-    #cont_compint(8000.00,5000.00,.0475, "x")
+    #cont_comp_interest(4000.00,2000.00,"x", 9.00)
+    #comp_interest("x",5000.00,.0475,12)
     #variable_in_exp(8,64)
 
 
