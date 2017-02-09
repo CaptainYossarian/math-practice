@@ -1,6 +1,11 @@
 import formulas
+import functools
 import pytest
 
+
+#### generic tests ####
+
+#### twopoints_tolinear() ####
 
 #### quadratic() ####
 def test_quadratic_zero_solutions():

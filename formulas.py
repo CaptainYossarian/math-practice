@@ -2,7 +2,26 @@
 #Work checker, python practice script, and homework helper for calculus class
 #Attempts to disuse math import when possible
 ###############################################################################
+import functools
 import math
+
+def twopoints_tolinear(x1, y1, x2, y2):
+    """ prints solutions for turning two points into linear equations.
+
+    Args:
+        x1, y1 = point one
+        x2, y2 = point two
+
+    Notes: nothing is reduced, and fractions are in decimal format
+    """
+
+    slope = "(%s/%s)" % (str(y2-y1),str(x2-x1))
+    siformtemp = ((y2-y1/x2-x1)*x1)-y1
+
+    print "Slope: %s" % slope
+    print "Point-slope form: y-%s = %s(x-%s)" % (y1, slope, x1)
+    print "Slope-intercept form: y=%sx + %s  " %(slope,siformtemp)
+    print "Standard form: do by hand,check results above for correct formatting"
 
 
 def quadratic(a, b, c):
@@ -11,7 +30,7 @@ def quadratic(a, b, c):
     Args:
         a,b,c = coefficients; ax^2 + bx + c = 0
     Returns:
-        returns the numbers of solutions to satisfy tests
+        returns the numbers of solutions (to satisfy flow control testing)
     """
 
     discriminent = (b**2 - 4*a*c)
@@ -19,7 +38,7 @@ def quadratic(a, b, c):
     if discriminent < 0:
         print "This equation has no real solutions"
         return 0
-    elif discriminent ==0:
+    elif discriminent == 0:
         print "This equation has one real solution:"
         print(-b + (discriminent)**.5)/ (2*a)
         return 1
@@ -42,6 +61,8 @@ def comp_interest(famount, p, rate, xcomp, years):
         xcomp = times compounded per year
         years = at the end of this many years
 
+    Returns: float solution for the desired problem type
+
     Notes: enter "x" for the target unknown variable
     """
 
@@ -55,8 +76,8 @@ def comp_interest(famount, p, rate, xcomp, years):
         print "Years is:"
         solution = math.log((1.00+(rate/xcomp)),(famount-p))/rate
 
-    return solution
     print solution
+    return solution
 
 def cont_comp_interest(famount,p,rate,years):
     """prints and returns solution for continuous compound interest functions.
@@ -68,6 +89,8 @@ def cont_comp_interest(famount,p,rate,years):
         p = principle(present value) of money
         rate = interest rate
         years = at the end of this many years
+
+    Returns: float solution for the desired problem type
 
     Notes: enter "x" for the unknown target variable
     """
@@ -112,10 +135,11 @@ def variable_in_exp(base,x):
 ###############################################################################
 def main():
     #SAMPLE METHOD CALLS
+    #twopoints_tolinear(4.00,9.00,10.00,3.00)
     #quadratic(4.00,6.00,9.00)
     #cont_comp_interest(4000.00,2000.00,"x", 9.00)
     #comp_interest("x",5000.00,.0475,12)
-    #variable_in_exp(8,64)
+    #variable_in_exp(10,26)
 
 
     """Complicated spaghetti logic for one of the problem types
