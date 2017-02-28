@@ -5,7 +5,7 @@
 import functools
 import math
 
-def twopoints_tolinear(x1, y1, x2, y2):
+def twopoints_tolinear(x1, y1, x2, y2): #kind of broken
     """ prints solutions for turning two points into linear equations.
 
     Args:
@@ -135,9 +135,9 @@ def variable_in_exp(base,x):
 ###############################################################################
 def main():
     #SAMPLE METHOD CALLS
-    #twopoints_tolinear(4.00,9.00,10.00,3.00)
+    twopoints_tolinear(6.00,3.00,6.00,9.00)
     #quadratic(4.00,6.00,9.00)
-    #cont_comp_interest(4000.00,2000.00,"x", 9.00)
+    #cont_comp_interest(50000.00,"x",-.05, 15.00)
     #comp_interest("x",5000.00,.0475,12)
     #variable_in_exp(10,26)
 
